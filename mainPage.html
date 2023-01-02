@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasatiempo en Cascada</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <script src="mainSc.js" defer="true"></script>
+
+</head>
+<!--Crear el tablero, recupera las cockies, carga el diccionario, mensajes de guardar las cockies-->
+<body onload="crearTablero();recuperar();GetD();mensajeCockies();">
+   
+    <!--TOP de la pagina-->
+    <!--TOP de la pagina-->
+    <div class="encabezado">
+        <h1>JUEGOS DE PASATIEMPO</h1>
+        <p>by Ricardo Alonso Perez</p>
+    </div>
+
+    <!--CUERPO de la pagina-->
+    <!--CUERPO de la pagina-->
+    <div class="contenedor">
+
+        <!--Tablero, checkbox, texto-->
+        <!--Tablero, checkbox, texto-->
+        <div class="parteIzquierda">
+            
+            <hr>
+             <!--Checkbox para las coockies-->
+            <div id="dosMos">
+            <label for="alm">Permites almacenamiento local?(Activada:SI/Desactivada:NO)</label><input onchange="almacenar()" type="checkbox"
+            name="alm" id="alm">
+            <br>
+            <!--Boton ppara limpiar el pasatiempo-->
+            <label for="limpiar">Desea volver a hacer el pasatiempo? </label><input id="limpiar" value="Vaciar pasatiempo" onclick="limpiar()" type="button">
+            </div>
+            <h2 id="tituloPasatiempos">En cascada</h2>
+            <h3>MAYALA</h3>
+
+            <form class="formTablero">
+                <!--Tablero generado por JS-->
+                <table id="tabla" cellspacing="0">
+                </table>
+            </form>
+            <!--Texto-->
+            <p class="pistas"><strong>1.</strong>Familia en Escocia. <strong>2.</strong>Tristeza y dolor por algo. <strong>3.</strong>Termino algo
+                definitivamente. <strong>4.</strong>El que torea</strong>
+            <p class="descripcion">Identifique la primera palabra y la ultima de cada bloque con las pistas que se dan.
+                A continuacion, trate de descrubir las palabras intermedias. Para lograrlo, cambie una letra de la
+                primera palabra para obtener la proxima y, despues, altere el orden de una o varias letras para
+                encontrar
+                la siguiente. Siga asi, sucesivamente, hasta que logre completar ambos casilleros. Todas las palbabras
+                intermedias deben tener significado.</p>
+            <h4>Instrucciones de uso</h4>  
+            <ul>
+                <li>En el checkbox ubicado al inicio de la pagina se podra activa/desactivar el alamacenamiento local</li>
+                <li>Si se quiere, se puede borrar todo el contenido que hay en el pasatiempos, en el boton indicado, dejando el pasatiempo en blanco para ser resuelto de nuevo, tanto con almacenamiento local activado como desactivado.</li>
+                <li>Las 3 pistas son por sesion</li>
+            </ul>  
+           
+        </div>
+
+
+        <!--Parte de la busqueda de palabras-->
+        <!--Parte de la busqueda de palabras-->
+        <div class="parteDerecha">
+            <hr>
+            <h2>Introduce una pista</h2>
+            <span>Intentos restantes: </spam> <span id="contadorIntentos">3</span><br>
+                <form onsubmit="mostrarPista(event)">
+                    <input type="text" name="textPista" id="textPista">
+                    <input type="button" onclick="mostrarPista(event)"  value="Pista" name="botonPista" id="botonPista"><br>
+                    <textarea id="textAreaPista"></textarea><br>
+                </form>
+
+                <!--Estados(opcional)-->
+                <p class="parraf">Estado del bloque 1: </p>
+                <p class="parraf" id="estatusbloque1"> No Resuelto.</p>
+                <br>
+                <p class="parraf">Estado del bloque 2: </p>
+                <p class="parraf" id="estatusbloque2"> No Resuelto.</p>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
